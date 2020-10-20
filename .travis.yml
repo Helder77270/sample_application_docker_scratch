@@ -55,3 +55,30 @@ jobs:
         - chmod 600 /tmp/deploy_rsa
         - ssh-add /tmp/deploy_rsa
         - ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
+      actions:
+        - action: "Push to registry"
+          type: "DOCKER_PUSH"
+          login: heldersalvador
+          password: Momentum98!!
+          region: "us-east-1"
+          integration_hash: "5ddb7c180fb38be67bd78a88a"
+          docker_image_tag: "14.06"
+          repository: "MyDockerRepo/MyDockerImage"
+          
+        - action: "Push to registry"
+          type: "DOCKER_PUSH"
+          login: heldersalvador
+          password: Momentum98!!
+          region: "us-east-1"
+          integration_hash: "5ddb7c180fb38be67bd78a88a"
+          docker_image_tag: "14.06"
+          repository: "MyDockerRepo/MyDockerImage"
+          
+        - action: "Push to registry"
+          type: "DOCKER_PUSH"
+          login: heldersalvador
+          password: Momentum98!!
+          region: "us-east-1"
+          integration_hash: "5ddb7c180fb38be67bd78a88a"
+          docker_image_tag: "14.06"
+          repository: "MyDockerRepo/MyDockerImage"
