@@ -1,28 +1,29 @@
-version: '2.4'
+version: "3.4"
 services:
   backend:
     container_name: backend
-    image: tp-api
-    networks:
-      - network
+    image: heldersalvador/tp-api
+    ports:
+      - "8080:8080"
     depends_on:
       - database
 
   database:
-    container_name: database
-    image: tp-db
-    networks:
-      - network
+    image: "postgres:12-alpine"
+    volumes:
+      - "./docker/postgresql/data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
 
   httpd:
     container_name: httpd
-    image: tp-http
+    image: heldersalvador/tp-http
     ports:
       - "80:80"
-    networks:
-      - network
     depends_on:
       - backend
-
-networks:
-  network:
